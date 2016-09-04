@@ -19,13 +19,13 @@ RUN buildDeps=' \
     ' \
     && set -x \
     && apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
-    && git clone https://github.com/mirror-media/news-window.git \
-    && cd news-window \
+    && git clone https://github.com/mirror-media/plate-model.git \
+    && cd plate-model \
     && git pull \
     && cp /config.js ./api/ \
     && cp -rf . .. \
     && cd .. \
-    && rm -rf news-window \
+    && rm -rf plate-model \
     && npm install \
     && npm install forever \
     && npm run build
