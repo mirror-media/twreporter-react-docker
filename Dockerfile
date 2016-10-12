@@ -11,6 +11,8 @@ COPY config.js /config.js
 RUN set -x \
     && apt-get update \
     && apt-get install -y git \
+    && apt-get install -y libhiredis-dev \
+    && apt-get install -y node-gyp \
     && rm -rf /var/lib/apt/lists/*
 RUN buildDeps=' \
     gcc \
@@ -27,7 +29,6 @@ RUN buildDeps=' \
     && cd .. \
     && rm -rf plate-model \
     && npm install \
-    && npm install forever \
     && npm run build
 
 EXPOSE 3000
